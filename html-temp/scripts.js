@@ -6,6 +6,8 @@ for (let i = 0; i < titles.length; i++) {
  console.log(titles[i])
 }
 
+const  isOne = document.getElementById('one')
+console.log(isOne)
 function plusOne() {
     console.log(++i)
 };
