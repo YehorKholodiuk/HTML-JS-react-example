@@ -17,3 +17,14 @@ function plusOne() {
 function minusOne(){
     console.log(--i)
 };
+
+function plus(){
+document.getElementById('counter').innerText =
+    Number(document.getElementById('counter').innerText) + 1;
+}
+function minus(){
+
+}
+function reset(){
+document.getElementById('counter').innerText = 0;
+}
