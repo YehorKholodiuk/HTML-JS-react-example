@@ -18,13 +18,16 @@ function minusOne(){
     console.log(--i)
 };
 
+const counterSelector = document.getElementById('counter')
+
 function plus(){
-document.getElementById('counter').innerText =
+counterSelector.innerText =
     Number(document.getElementById('counter').innerText) + 1;
 }
 function minus(){
-
+    counterSelector.innerText =
+        Number(document.getElementById('counter').innerText) - 1;
 }
 function reset(){
-document.getElementById('counter').innerText = 0;
+counterSelector.innerText = 0;
 }
