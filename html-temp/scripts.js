@@ -42,24 +42,28 @@ const list = [
 
 ]
 
+const listElement = document.getElementById('list')
+const todoInput = document.getElementById('ToDoInput')
 function Render(){
     list.forEach( el => {
             const listItem = document.createElement('li');
             const listItemText = document.createTextNode(el.title)
             listItem.appendChild(listItemText)
-            document.getElementById('list').appendChild(listItem)
+            listElement.appendChild(listItem)
         }
     );
 }
 Render();
 function addToList(){
-    const toDoInputValue = document.getElementById('ToDoInput').value;
+    const todoInputValue = todoInput.value;
     //console.log(v)
     list.push({
         id:Math.random(),
-        title:toDoInputValue
+        title:todoInputValue,
     })
     console.log(list)
-    document.getElementById('list').innerHTML = null;
+    listElement.innerHTML = null;
     Render();
+
+    todoInput.value ='';
 }
