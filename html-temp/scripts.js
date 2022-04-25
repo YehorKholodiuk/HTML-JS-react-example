@@ -31,3 +31,21 @@ function minus(){
 function reset(){
 counterSelector.innerText = 0;
 }
+const list = [
+    {  id:1,
+    title:"learn JS"
+},
+{
+    id:2,
+        title:"learn React, and get a Job!!!"
+},
+
+]
+
+list.forEach( el => {
+        const listItem = document.createElement('li');
+        const listItemText = document.createTextNode(el.title)
+        listItem.appendChild(listItemText)
+        document.getElementById('list').appendChild(listItem)
+}
+);
