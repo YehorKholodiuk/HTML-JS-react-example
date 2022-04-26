@@ -61,6 +61,7 @@ function Render() {
             listItem.appendChild(listItemText)
 
             const buttonItem = document.createElement('button');
+            buttonItem.setAttribute('id',el.id)
             const buttonItemText = document.createTextNode('Done')
             buttonItem.appendChild(buttonItemText)
             listItem.appendChild(buttonItem)
@@ -70,6 +71,12 @@ function Render() {
 }
 
 Render();
+
+listElement.addEventListener('click',(event)=>{
+    if(event.target.nodeName === 'BUTTON')
+    {console.log(event.target.id)
+    }
+})
 
 function addToList() {
     const todoInputValue = todoInput.value;
