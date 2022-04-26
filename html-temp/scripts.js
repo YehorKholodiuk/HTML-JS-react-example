@@ -39,11 +39,13 @@ function reset() {
 const list = [
     {
         id: 1,
-        title: "learn JS"
+        title: "learn JS",
+        done:true,
     },
     {
         id: 2,
-        title: "learn React, and get a Job!!!"
+        title: "learn React, and get a Job!!!",
+        done:false,
     },
 
 ]
@@ -54,6 +56,7 @@ const todoInput = document.getElementById('ToDoInput')
 function Render() {
     list.forEach(el => {
             const listItem = document.createElement('li');
+            listItem.setAttribute('class',el.done ?'done':'progress')
             const listItemText = document.createTextNode(el.title)
             listItem.appendChild(listItemText)
 
