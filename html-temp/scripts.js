@@ -76,9 +76,11 @@ Render();
 listElement.addEventListener('click', (event) => {
     if (event.target.nodeName === 'BUTTON') {
         const id = event.target.id
+        console.log(typeof id)
         for (let i = 0; i < list.length; i++) {
             if (list[i].id === id) list[i].done = !list[i].done;
         }
+        console.log(list)
         Render()
     }
 
@@ -88,7 +90,7 @@ function addToList() {
     const todoInputValue = todoInput.value;
     //console.log(v)
     list.push({
-        id: Math.random(),
+        id: Math.random().toString(),
         title: todoInputValue,
     })
     console.log(list)
