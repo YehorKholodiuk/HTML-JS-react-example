@@ -38,14 +38,14 @@ function reset() {
 
 const list = [
     {
-        id: 1,
+        id: 'id1',
         title: "learn JS",
-        done:true,
+        done: true,
     },
     {
-        id: 2,
+        id: 'id2',
         title: "learn React, and get a Job!!!",
-        done:false,
+        done: false,
     },
 
 ]
@@ -54,14 +54,15 @@ const listElement = document.getElementById('list')
 const todoInput = document.getElementById('ToDoInput')
 
 function Render() {
+    listElement.innerHTML = null;
     list.forEach(el => {
             const listItem = document.createElement('li');
-            listItem.setAttribute('class',el.done ?'done':'progress')
+            listItem.setAttribute('class', el.done ? 'done' : 'progress')
             const listItemText = document.createTextNode(el.title)
             listItem.appendChild(listItemText)
 
             const buttonItem = document.createElement('button');
-            buttonItem.setAttribute('id',el.id)
+            buttonItem.setAttribute('id', el.id)
             const buttonItemText = document.createTextNode('Done')
             buttonItem.appendChild(buttonItemText)
             listItem.appendChild(buttonItem)
@@ -72,10 +73,15 @@ function Render() {
 
 Render();
 
-listElement.addEventListener('click',(event)=>{
-    if(event.target.nodeName === 'BUTTON')
-    {console.log(event.target.id)
+listElement.addEventListener('click', (event) => {
+    if (event.target.nodeName === 'BUTTON') {
+        const id = event.target.id
+        for (let i = 0; i < list.length; i++) {
+            if (list[i].id === id) list[i].done = !list[i].done;
+        }
+        Render()
     }
+
 })
 
 function addToList() {
@@ -86,7 +92,7 @@ function addToList() {
         title: todoInputValue,
     })
     console.log(list)
-    listElement.innerHTML = null;
+
     Render();
 
     todoInput.value = '';
