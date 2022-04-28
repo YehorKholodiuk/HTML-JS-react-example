@@ -94,7 +94,7 @@ function addToList() {
         title: todoInputValue,
     })
     console.log(list)
-
+    localStorage.setItem('list',JSON.stringify(list))
     Render();
 
     todoInput.value = '';
