@@ -36,19 +36,20 @@ function reset() {
     counterSelector.innerText = 0;
 }
 
-const list = [
-    {
-        id: 'id1',
-        title: "learn JS",
-        done: true,
-    },
-    {
-        id: 'id2',
-        title: "learn React, and get a Job!!!",
-        done: false,
-    },
+const list = JSON.parse(localStorage.getItem('list'))
+    //[
+    //{
+        //id: 'id1',
+        //title: "learn JS",
+        //done: true,
+    //},
+    //{
+        //id: 'id2',
+        //title: "learn React, and get a Job!!!",
+        //done: false,
+    //},
 
-]
+//]
 
 const listElement = document.getElementById('list')
 const todoInput = document.getElementById('ToDoInput')
@@ -81,6 +82,7 @@ listElement.addEventListener('click', (event) => {
             if (list[i].id === id) list[i].done = !list[i].done;
         }
         console.log(list)
+        updateLocalStorage()
         Render()
     }
 
@@ -94,8 +96,12 @@ function addToList() {
         title: todoInputValue,
     })
     console.log(list)
-    localStorage.setItem('list',JSON.stringify(list))
+    updateLocalStorage()
     Render();
 
     todoInput.value = '';
+}
+
+function updateLocalStorage(){
+    localStorage.setItem('list',JSON.stringify(list))
 }
